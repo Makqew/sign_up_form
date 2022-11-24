@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles.css">
+
 </head>
 <body>
     <main>
@@ -27,33 +28,38 @@
                     <h2>Let's do this!</h2>
                     <div class="row">
                         <label for="">FIRST NAME
-                            <input type="text">
+                            <input type="text" required />
                         </label>
                         <label for="">LAST NAME
-                            <input type="text">
+                            <input type="text" required />
                         </label>
                     </div>
                     <div class="row">
                         <label for="">EMAL
-                            <input type="email">
+                            <input type="email" required />
                         </label>
                         <label for="">PHONE NUMBER
-                            <input type="tel">
+                            <input type="tel" placeholder="123-123-1234" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required />
                         </label>
                     </div>
                     <div class="row">
                         <label for="">PASSWORD
-                            <input type="text">
+                            <input id="password1" type="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+ required />
                         </label>
                         <label for="">CONFIRM PASSWORD
-                            <input type="text">
+                            <input id="password2" type="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+                            required />
                         </label>
                     </div>
                 </div>
-                <button type="submit">Create account</button>
+                <div id="form-bottom">
+                    <button onclick="verify()" type="submit">Create account</button>
+                    <div id="additional">Already have an account? <a href="#">Log in</a></div>
+                </div>
             </form>
-            <div id="additional">Already have an account? <a href="#">Log in</a></div>
         </div>
     </main>
 </body>
+<script src="script.js"></script>
 </html>
