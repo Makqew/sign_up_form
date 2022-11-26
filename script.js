@@ -1,5 +1,7 @@
 const password = document.getElementById('password1');
 const password2 = document.getElementById('password2');
+const inputs = document.getElementsByTagName("input");
+
 password.addEventListener("input", (event) => {
     if (password.validity.patternMismatch) {
       password.setCustomValidity("Minimum eight characters, at least one letter and one number");
@@ -27,17 +29,31 @@ if (password2.validity.patternMismatch === true) {
 }
 });
 
+
+
+for (let i = 0; i < inputs.length; i++){
+    inputs[i].addEventListener("input", (event) => {
+        if (!inputs[i].validity.valid) {
+            inputs[i].style.border = " 2px solid red";
+        } else {
+            inputs[i].style.border = " 2px solid #d8dae1";
+        }
+    })
+}
+
+
 function verify() {
-    let inputs = document.getElementsByTagName("input");
-    let i = 0;
+    let j = 0;
     do{
-        if(!inputs[i].validity.valid){
-            inputs[i].style.border = "2px solid red";
-            i = inputs.length;
+        if(!inputs[j].validity.valid){
+            inputs[j].style.border = "2px solid red";
+            j = inputs.length;
+            console.log('bruh!')
         }
         else {
-            inputs[i].style.border = "2px solid #d8dae1 ";
-            i++;
+            inputs[j].style.border = "2px solid #d8dae1";
+            j++;
+            console.log('bruw!')
         }
-    } while( i < inputs.length); 
+    } while( j < inputs.length); 
 }
