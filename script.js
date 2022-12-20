@@ -1,6 +1,6 @@
-const password = document.getElementById('password1');
-const password2 = document.getElementById('password2');
-const inputs = document.getElementsByTagName("input");
+const password = document.getElementById('password');
+const repeatPassword = document.getElementById('repeatPassword');
+const inputsList = document.getElementsByTagName('input');
 
 password.addEventListener("input", (event) => {
     if (password.validity.patternMismatch) {
@@ -14,29 +14,29 @@ password.addEventListener("input", (event) => {
     }
   });
 
-password2.addEventListener("input", (event) => {
-if (password2.validity.patternMismatch === true) {
-    password2.setCustomValidity("Minimum eight characters, at least one letter and one number");
-    password2.reportValidity();
-    password2.style.border = " 2px solid red"
-} else if(password2.value !== password.value) {
-    password2.setCustomValidity("Passwords are not the same");
-    password2.reportValidity();
-    password2.style.border = " 2px solid red"
+repeatPassword.addEventListener("input", (event) => {
+if (repeatPassword.validity.patternMismatch === true) {
+    repeatPassword.setCustomValidity("Minimum eight characters, at least one letter and one number");
+    repeatPassword.reportValidity();
+    repeatPassword.style.border = " 2px solid red"
+} else if(repeatPassword.value !== password.value) {
+    repeatPassword.setCustomValidity("Passwords are not the same");
+    repeatPassword.reportValidity();
+    repeatPassword.style.border = " 2px solid red"
 } else {
-    password2.setCustomValidity("");
-    password2.style.border = " 2px solid #d8dae1 "
+    repeatPassword.setCustomValidity("");
+    repeatPassword.style.border = " 2px solid #d8dae1 "
 }
 });
 
 
 
-for (let i = 0; i < inputs.length; i++){
-    inputs[i].addEventListener("input", (event) => {
-        if (!inputs[i].validity.valid) {
-            inputs[i].style.border = " 2px solid red";
+for (let i = 0; i < inputsList.length; i++){
+    inputsList[i].addEventListener("input", (event) => {
+        if (!inputsList[i].validity.valid) {
+            inputsList[i].style.border = " 2px solid red";
         } else {
-            inputs[i].style.border = " 2px solid #d8dae1";
+            inputsList[i].style.border = " 2px solid #d8dae1";
         }
     })
 }
@@ -45,15 +45,15 @@ for (let i = 0; i < inputs.length; i++){
 function verify() {
     let j = 0;
     do{
-        if(!inputs[j].validity.valid){
-            inputs[j].style.border = "2px solid red";
-            j = inputs.length;
+        if(!inputsList[j].validity.valid){
+            inputsList[j].style.border = "2px solid red";
+            j = inputsList.length;
             console.log('bruh!')
         }
         else {
-            inputs[j].style.border = "2px solid #d8dae1";
+            inputsList[j].style.border = "2px solid #d8dae1";
             j++;
             console.log('bruw!')
         }
-    } while( j < inputs.length); 
+    } while( j < inputsList.length); 
 }
